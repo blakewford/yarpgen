@@ -1580,9 +1580,9 @@ def prepare_env_and_start_testing(out_dir, timeout, targets, num_jobs, config_fi
     print_online_statistics_and_cleanup(lock, stat, targets, task_threads, num_jobs, no_tmp_cln)
 
     sys.stdout.write("\n")
-    for i in range(num_jobs):
-        common.log_msg(logging.DEBUG, "Removing " + process_dir + str(i) + " dir")
-        shutil.rmtree(process_dir + str(i))
+#    for i in range(num_jobs):
+#        common.log_msg(logging.DEBUG, "Removing " + process_dir + str(i) + " dir")
+#        shutil.rmtree(process_dir + str(i))
 
     stat_str, verbose_stat_str, prev_len = form_statistics(stat, targets, 0)
     sys.stdout.write(verbose_stat_str)
@@ -1772,7 +1772,7 @@ Use specified folder for testing
 
     #TODO: we need to support more standards
     common.set_gen_standard(args.std_str)
-    gen_test_makefile.set_standard(gen_test_makefile.StdID.get_pretty_std_name(gen_test_makefile.StdID.CXX11))
+    gen_test_makefile.set_standard(gen_test_makefile.StdID.get_pretty_std_name(gen_test_makefile.StdID.CXX03))
 
     Test.ignore_comp_time_exp = args.ignore_comp_time_exp
     prepare_env_and_start_testing(os.path.abspath(args.out_dir), args.timeout, args.target, args.num_jobs,
